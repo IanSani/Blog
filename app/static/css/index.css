@@ -7,12 +7,7 @@
   font-family: 'Indie Flower', cursive;
   /*background-color: rgba(0, 0, 0, );*/
 }
-.displays{
-  /*background-color: rgb(0, 0, 0);*/
-  text-align: center;
-  margin-left: 350px;
-  margin-right: 350px;
-}
+
 .jumbotron{
   margin-top: -20px;
   height: 500px;
