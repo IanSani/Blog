@@ -50,7 +50,7 @@ Bloggers would like to:
 * In your terminal:
 
         $ git clone https://github.com/IanSani/Blog/
-        $ cd peech
+        $ cd Blog
 
 ## Running the Application
 * Creating the virtual environment
@@ -80,4 +80,5 @@ Bloggers would like to:
 ## License
 
 The application is under MIT License
-Copyright (c) 2018 IanSani
+
+Copyright (c) 2018 Ian Sani

@@ -2,10 +2,10 @@ from flask import render_template
 from flask import render_template,request,redirect,url_for,abort, flash
 from flask_login import login_required,current_user
 from ..email import mail_message
-from ..models import *
+from ..models import User,Blogs,Comments,Role,Subscriber
 from . import main
 from .. import db,photos
-from .forms import *
+from .forms import CommentForm, UpdateProfile,SubscriberForm,BlogForm
 import markdown2
 
 @main.route('/')
@@ -17,7 +17,7 @@ def index():
     blogs = Blogs.query.order_by(Blogs.date.desc()).all()
 
 
-    title= "Emdee's Blog"
+    title= "Blogs Post"
     return render_template('index.html',title=title, blogs=blogs)
 
 @main.route('/user/<uname>')
@@ -94,7 +94,7 @@ def new_blog():
 
         subscriber = Subscriber.query.all()
         for email in subscriber:
-            mail_message("New Blog Post from Emdee's Blog ","email/postnotification",email.email,subscriber=subscriber)
+            mail_message("New Blog Post from Blogs Post ","email/postnotification",email.email,subscriber=subscriber)
 
         return redirect(url_for('main.single_blog',id=blogpost.id))
 
@@ -106,7 +106,7 @@ def single_blog(id):
 
     blogpost = Blogs.query.get(id)
 
-    return render_template('oneblogpost.html',blogpost=blogpost)
+    return render_template('oneblogspot.html',blogpost=blogpost)
 
 @main.route('/blogposts')
 def blogpost_list():
@@ -213,9 +213,9 @@ def subscriber():
         db.session.add(subscriber)
         db.session.commit()
 
-        mail_message("Hello, Welcome To Emdee's Blog.","email/welcome_subscriber",subscriber.email,subscriber=subscriber)
+        mail_message("Hello, Welcome To Blogs Post.","email/welcome_subscriber",subscriber.email,subscriber=subscriber)
 
-        title= "Emdee's Blog"
+        title= "Blogs Post"
         return render_template('index.html',title=title, blogs=blogs)
 
     subscriber = Blogs.query.all()

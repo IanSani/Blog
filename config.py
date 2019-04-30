@@ -2,8 +2,8 @@ import os
 
 class Config:
 
-    SECRET_KEY=os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://emdee:arif@123@localhost/blogs'
+    SECRET_KEY=('Ian')
+    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://ain:saniboy254@localhost/blogs'
 
 
     UPLOADED_PHOTOS_DEST ='app/static/photos'
@@ -14,8 +14,8 @@ class Config:
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
-    SUBJECT_PREFIX = 'Emdees Blog!'
-    SENDER_EMAIL = 'staremdee@gmail.com'
+    SUBJECT_PREFIX = 'Blogs post'
+    SENDER_EMAIL = 'iansani259@gmail.com'
     SIMPLEMDE_JS_IIFE = True
     SIMPLEMDE_USE_CDN = True
 
@@ -33,7 +33,7 @@ class ProdConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 
 class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://emdee:arif@123@localhost/blogs_test'
+    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://ain:saniboy254@localhost/blogs_test'
 
 
 class DevConfig(Config):
@@ -42,7 +42,7 @@ class DevConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://emdee:arif@123@localhost/blogs'
+    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://ain:saniboy254@localhost/blogs'
 
     DEBUG = True
 
